@@ -54,31 +54,32 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
     @Override
     public void onBindViewHolder( ItemHolder holder, int position ) {
         Item item = list.get( position );
-        if(item.getIsChecked()) {
-            NewItemActivity.DatabaseInfo myDatabase = new NewItemActivity.DatabaseInfo();
-            Log.d(DEBUG_TAG, "onBindViewHolder: " + item);
+        NewItemActivity.DatabaseInfo myDatabase = new NewItemActivity.DatabaseInfo();
+        Log.d( DEBUG_TAG, "onBindViewHolder: " + item );
 
-            holder.name.setText(item.getItemName());
-            holder.price.setText(item.getPrice());
-            if (holder.checked.isChecked() && !item.getIsChecked()) {
-                holder.checked.toggle();
-            } else if (!holder.checked.isChecked() && item.getIsChecked()) {
-                holder.checked.toggle();
-            }
-            holder.updateButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    item.setPrice(holder.price.getText().toString());
-                    if (holder.checked.isChecked()) {
-                        item.setIsChecked(true);
-                        myDatabase.getRef().child(item.getItemId()).child("isChecked").setValue(true);
-                    } else {
-                        item.setIsChecked(false);
-                        myDatabase.getRef().child(item.getItemId()).child("isChecked").setValue(false);
-                    }
-                }
-            });
+        holder.name.setText(item.getItemName());
+        System.out.println(item.getPrice());
+        holder.price.setText(item.getPrice());
+        if (holder.checked.isChecked() && !item.getIsChecked()) {
+            holder.checked.toggle();
+        } else if (!holder.checked.isChecked() && item.getIsChecked()) {
+            holder.checked.toggle();
         }
+        holder.updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                item.setPrice(holder.price.getText().toString());
+                myDatabase.getRef().child(item.getItemId()).child("price").setValue(holder.price.getText().toString());
+                if (holder.checked.isChecked()) {
+                    item.setIsChecked(true);
+                    myDatabase.getRef().child(item.getItemId()).child("isChecked").setValue(true);
+                } else {
+                    item.setIsChecked(false);
+                    myDatabase.getRef().child(item.getItemId()).child("isChecked").setValue(false);
+                }
+            }
+        });
+
     }
 
     @Override

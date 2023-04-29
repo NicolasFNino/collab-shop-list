@@ -68,7 +68,14 @@ public class ReviewItemsActivity extends AppCompatActivity
                 }
                 Log.d( DEBUG_TAG, "ReviewItemsActivity.onCreate(): setting recyclerAdapter" );
 
-                recyclerAdapter = new ItemRecyclerAdapter( itemsList );
+                ArrayList<Item> notCheckedItemList = new ArrayList<Item>();
+                for (int i = 0; i < itemsList.size(); i++) {
+                    if (!itemsList.get(i).getIsChecked()) {
+                        notCheckedItemList.add(itemsList.get(i));
+                    }
+                }
+
+                recyclerAdapter = new ItemRecyclerAdapter( notCheckedItemList );
                 recyclerView.setAdapter( recyclerAdapter );
             }
 
