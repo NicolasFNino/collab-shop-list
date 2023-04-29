@@ -42,7 +42,7 @@ public class ItemManagementActivity extends AppCompatActivity {
         FirebaseAuth.getInstance().addAuthStateListener(new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+                currentUser = firebaseAuth.getCurrentUser();
                 if( currentUser != null ) {
                     Log.d(DEBUG_TAG, "user signed in:" + currentUser.getUid());
                     String userEmail = currentUser.getEmail();
@@ -67,6 +67,7 @@ public class ItemManagementActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(view.getContext(), ReviewItemsActivity.class);
+            intent.putExtra("user", currentUser.getEmail());
             view.getContext().startActivity(intent);
         }
     }
@@ -75,6 +76,7 @@ public class ItemManagementActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(view.getContext(), ReviewPurchasedActivity.class);
+            intent.putExtra("user", currentUser.getEmail());
             view.getContext().startActivity(intent);
         }
     }

@@ -14,7 +14,6 @@ import androidx.fragment.app.DialogFragment;
 public class AddItemDialogFragment extends DialogFragment {
 
     private EditText nameText;
-    private EditText priceText;
 
     public interface AddItemDialogListener {
         void onFinishNewItemDialog(Item item);
@@ -48,7 +47,6 @@ public class AddItemDialogFragment extends DialogFragment {
         public void onClick(DialogInterface dialog, int which) {
             String name = nameText.getText().toString();
             String id = NewItemActivity.DatabaseInfo.getRef().push().getKey();
-            //String price = priceText.getText().toString();
             Item item = new Item( name, id);
 
             AddItemDialogListener listener = (AddItemDialogListener) getActivity();

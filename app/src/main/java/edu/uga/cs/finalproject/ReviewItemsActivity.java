@@ -1,5 +1,6 @@
 package edu.uga.cs.finalproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,11 +29,14 @@ public class ReviewItemsActivity extends AppCompatActivity
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.Adapter recyclerAdapter;
-
     private List<Item> itemsList;
+    String user = "";
 
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
+
+        Intent intent = getIntent();
+        this.user = intent.getStringExtra("user");
 
         Log.d( DEBUG_TAG, "ReviewItemsActivity.onCreate()" );
 
@@ -75,7 +79,7 @@ public class ReviewItemsActivity extends AppCompatActivity
                     }
                 }
 
-                recyclerAdapter = new ItemRecyclerAdapter( notCheckedItemList );
+                recyclerAdapter = new ItemRecyclerAdapter( notCheckedItemList , user);
                 recyclerView.setAdapter( recyclerAdapter );
             }
 

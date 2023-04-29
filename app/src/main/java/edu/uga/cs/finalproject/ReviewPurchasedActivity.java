@@ -1,9 +1,11 @@
 package edu.uga.cs.finalproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,10 +34,16 @@ public class ReviewPurchasedActivity extends AppCompatActivity
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.Adapter recyclerAdapter;
 
+    private Button settleButton;
+
     private List<Item> list;
+    String user ="";
 
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
+
+        Intent intent = getIntent();
+        this.user = intent.getStringExtra("user");
 
         Log.d( DEBUG_TAG, "ReviewItemsActivity.onCreate()" );
 
@@ -43,6 +51,8 @@ public class ReviewPurchasedActivity extends AppCompatActivity
         setContentView( R.layout.activity_review_items);
 
         recyclerView = (RecyclerView) findViewById( R.id.recyclerView );
+        settleButton = (Button) findViewById( R.id.settleButton );
+        settleButton.setOnClickListener( new ReviewPurchasedActivity.SettleButtonClickListener() );
 
         FloatingActionButton floatingButton = findViewById(R.id.floatingActionButton);
         floatingButton.setOnClickListener( new View.OnClickListener() {
@@ -100,7 +110,7 @@ public class ReviewPurchasedActivity extends AppCompatActivity
                         list.add( item );
                         recyclerAdapter.notifyItemInserted(list.size() - 1);
 
-                        Log.d( DEBUG_TAG, "Job lead saved: " + item );
+                        Log.d( DEBUG_TAG, "Item saved: " + item );
                         Toast.makeText(getApplicationContext(), item.getItemName() + " created",
                                 Toast.LENGTH_SHORT).show();
 
@@ -113,6 +123,13 @@ public class ReviewPurchasedActivity extends AppCompatActivity
                                 Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+    public static class SettleButtonClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(view.getContext(), SettleActivity.class);
+            view.getContext().startActivity(intent);
+        }
     }
 
     void showDialogFragment( DialogFragment newFragment ) {

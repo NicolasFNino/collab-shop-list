@@ -24,9 +24,14 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
     public static final String DEBUG_TAG = "ItemRecyclerAdapter";
 
     private List<Item> list;
+    String user = "";
 
-    public ItemRecyclerAdapter( List<Item> list ) {
+    public ItemRecyclerAdapter( List<Item> list) {
         this.list = list;
+    }
+    public ItemRecyclerAdapter( List<Item> list , String u) {
+        this.list = list;
+        this.user = u;
     }
 
     class ItemHolder extends RecyclerView.ViewHolder {
@@ -70,6 +75,7 @@ public class ItemRecyclerAdapter extends RecyclerView.Adapter<ItemRecyclerAdapte
             public void onClick(View view) {
                 item.setPrice(holder.price.getText().toString());
                 myDatabase.getRef().child(item.getItemId()).child("price").setValue(holder.price.getText().toString());
+                myDatabase.getRef().child(item.getItemId()).child("user").setValue(user);
                 if (holder.checked.isChecked()) {
                     item.setIsChecked(true);
                     myDatabase.getRef().child(item.getItemId()).child("isChecked").setValue(true);
