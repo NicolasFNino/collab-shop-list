@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "591026385949",
+    "firebase_url": "https://superapp-acb13-default-rtdb.firebaseio.com",
+    "project_id": "superapp-acb13",
+    "storage_bucket": "superapp-acb13.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591026385949:android:e8461d8799583a299602f4",
+        "android_client_info": {
+          "package_name": "edu.uga.cs.finalproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "591026385949-39b10sets4k0ijl6e1c9051hdq4t9743.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUokSlG4z83hIN3mOAj0NSGVXqIBuVOqo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "591026385949-39b10sets4k0ijl6e1c9051hdq4t9743.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591026385949:android:55836a5bd6ba5d489602f4",
+        "android_client_info": {
+          "package_name": "edu.uga.cs.superapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "591026385949-39b10sets4k0ijl6e1c9051hdq4t9743.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUokSlG4z83hIN3mOAj0NSGVXqIBuVOqo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "591026385949-39b10sets4k0ijl6e1c9051hdq4t9743.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
