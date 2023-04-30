@@ -83,7 +83,7 @@ public class ReviewPurchasedActivity extends AppCompatActivity
 
                 ArrayList<Item> checkedItemList = new ArrayList<Item>();
                 for (int i = 0; i < list.size(); i++) {
-                    if (list.get(i).getIsChecked()) {
+                    if (list.get(i).getIsChecked() && !list.get(i).getPurchased()) {
                         checkedItemList.add(list.get(i));
                     }
                 }

@@ -6,6 +6,28 @@
     android:orientation="vertical"
     tools:context=".SettleActivity">
 
+    <TextView
+        android:id="@+id/totalCost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="24sp"/>
+
+    <TextView
+        android:id="@+id/averageCost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="24sp"/>
+
+    <TextView
+        android:id="@+id/usersTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="28sp"
+        android:textStyle="bold"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="wrap_content"

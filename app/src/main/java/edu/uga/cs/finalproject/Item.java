@@ -10,6 +10,7 @@ public class Item {
 
     private String user;
     private boolean checked;
+    private boolean purchased;
 
     public Item() {
         id = null;
@@ -17,6 +18,7 @@ public class Item {
         price = null;
         user = null;
         checked = true;
+        purchased = false;
     }
     public Item( String name, String id) {
         this.id = id;
@@ -56,6 +58,8 @@ public class Item {
         this.checked = checked;
     }
 
+    public void setPurchased(boolean b) { this.purchased = b; }
+    public boolean getPurchased() { return this.purchased; }
     @NonNull
     public String toString() {
         return "Item: " + name;
