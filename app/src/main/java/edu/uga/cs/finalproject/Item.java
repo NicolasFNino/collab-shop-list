@@ -3,6 +3,10 @@ package edu.uga.cs.finalproject;
 
 import androidx.annotation.NonNull;
 
+
+/**
+ * The Item class, for an item in the shopping list
+ */
 public class Item {
     private String id = null;
     private String name = null;
@@ -12,6 +16,9 @@ public class Item {
     private boolean checked;
     private boolean purchased;
 
+    /**
+     * Default Constructor
+     */
     public Item() {
         id = null;
         name = null;
@@ -20,7 +27,14 @@ public class Item {
         checked = true;
         purchased = false;
     }
-    public Item( String name, String id) {
+
+    /**
+     * Constructor for the Item class
+     *
+     * @param name item's name
+     * @param id   item's ID
+     */
+    public Item(String name, String id) {
         this.id = id;
         this.name = name;
     }
@@ -32,6 +46,7 @@ public class Item {
     public void setItemId(String id) {
         this.id = id;
     }
+
     public String getItemName() {
         return name;
     }
@@ -48,8 +63,14 @@ public class Item {
         this.price = price;
     }
 
-    public void setUser(String u) {this.user = u;}
-    public String getUser() {return this.user;}
+    public void setUser(String u) {
+        this.user = u;
+    }
+
+    public String getUser() {
+        return this.user;
+    }
+
     public boolean getIsChecked() {
         return checked;
     }
